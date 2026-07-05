@@ -41,6 +41,14 @@ jobs:
       - name: Build project
         run: npm run build
 
+      - name: Show build output
+        run: |
+          echo "Working directory: $(pwd)"
+          echo "List files in working directory:"
+          ls -la
+          echo "\nList 'dist' directory (if exists):"
+          ls -la dist || true
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
